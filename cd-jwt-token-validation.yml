@@ -1,0 +1,40 @@
+name: 1.0$(rev:.r)
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: 'src/SimpleJwtTokenValidation/SimpleJwtTokenValidation.csproj'
+
+- task: MSBuild@1
+  displayName: 'Build solution'
+  inputs:
+    solution: src/SimpleJwtTokenValidation/SimpleJwtTokenValidation.csproj
+    msbuildArguments: '/t:restore;build /p:PackageOutputPath=$(build.artifactstagingdirectory)'
+    clean: true
+- task: MSBuild@1
+  displayName: 'Build beta'
+  inputs:
+    solution: src/SimpleJwtTokenValidation/SimpleJwtTokenValidation.csproj
+    msbuildArguments: '/t:restore;build;pack /p:PackageVersion=$(Build.BuildNumber)-beta /p:PackageOutputPath=$(build.artifactstagingdirectory)/beta /p:AssemblyFileVersion=$(Build.BuildNumber)  '
+    clean: true
+
+- task: MSBuild@1
+  displayName: 'Build final'
+  inputs:
+    solution: src/SimpleJwtTokenValidation/SimpleJwtTokenValidation.csproj
+    msbuildArguments: '/t:restore;build;pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber) '
+    clean: true
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(build.sourcesdirectory)'
+    Contents: '**\bin\$(BuildConfiguration)\**\*.nupkg'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
