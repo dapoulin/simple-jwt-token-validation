@@ -7,15 +7,21 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: NuGetToolInstaller@0
-  displayName: 'Use NuGet 4.9.3'
-  inputs:
-    versionSpec: 4.9.3
+# - task: NuGetToolInstaller@0
+#   displayName: 'Use NuGet 4.9.3'
+#   inputs:
+#     versionSpec: 4.9.3
 
-- task: NuGetCommand@2
-  displayName: 'NuGet restore'
+# - task: NuGetCommand@2
+#   displayName: 'NuGet restore'
+#   inputs:
+#     restoreSolution: 'src/**/*.sln'
+
+- task: DotNetCoreCLI@2
   inputs:
-    restoreSolution: 'src/**/*.sln'
+    command: 'restore'
+    projects: 'src/SimpleJwtTokenValidation/SimpleJwtTokenValidation.csproj'
+
 
 - task: MSBuild@1
   displayName: 'Build solution'
