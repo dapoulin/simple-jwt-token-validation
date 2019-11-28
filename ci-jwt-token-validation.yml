@@ -20,6 +20,6 @@ steps:
 - task: MSBuild@1
   displayName: 'Build solution'
   inputs:
-    solution: src/Ef.Cosmos/Ef.Cosmos.csproj
+    solution: src/SimpleJwtTokenValidation/SimpleJwtTokenValidation.csproj
     msbuildArguments: '/t:restore;build /p:PackageOutputPath=$(build.artifactstagingdirectory)'
     clean: true
