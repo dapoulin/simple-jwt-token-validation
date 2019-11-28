@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleJwtTokenValidation", "SimpleJwtTokenValidation\SimpleJwtTokenValidation.csproj", "{74D658C9-F23A-41DD-963D-A422E8247274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleJwtTokenValidation.Tests", "SimpleJwtTokenValidation.Tests\SimpleJwtTokenValidation.Tests.csproj", "{87A07DD2-A3F5-438D-A668-DE4D4B193BCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74D658C9-F23A-41DD-963D-A422E8247274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D658C9-F23A-41DD-963D-A422E8247274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D658C9-F23A-41DD-963D-A422E8247274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D658C9-F23A-41DD-963D-A422E8247274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A07DD2-A3F5-438D-A668-DE4D4B193BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A07DD2-A3F5-438D-A668-DE4D4B193BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A07DD2-A3F5-438D-A668-DE4D4B193BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A07DD2-A3F5-438D-A668-DE4D4B193BCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BAD82BD-F545-455A-97D9-DBA840E83E69}
+	EndGlobalSection
+EndGlobal
